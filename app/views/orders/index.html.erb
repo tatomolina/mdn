@@ -12,18 +12,22 @@
             <th scope="col">Date</th>
           </tr>
         </thead>
-        <% if @orders.present? %>
-          <% @orders.each do |order| %>
-            <tr>
-              <td>
-                <%= order.direction %>
-              </td>
-              <td>
-                <%= order.date %>
-              </td>
-            </tr>
+        <tbody>
+          <% if @orders.present? %>
+          <% x=0 %>
+            <% @orders.each do |order| %>
+              <tr>
+                <th scope="row"><%= x+=1 %></th>
+                <td>
+                  <%= order.direction %>
+                </td>
+                <td>
+                  <%= order.date %>
+                </td>
+              </tr>
+            <% end %>
           <% end %>
-        <% end %>
+        </tbody>
       </table>
     <div>
       <p>
