@@ -1,0 +1,7 @@
+<h1> <%= @client.name %> </h1>
+
+<%= link_to "Editar", edit_client_path(@client) %>
+<%= link_to 'Eliminar',client_path(@client), method: :delete,
+                                          data: { confirm: 'Are you sure?' } %>
+
+<h3>Aca va un listado con los pedidos hechos por el cliente</h3>

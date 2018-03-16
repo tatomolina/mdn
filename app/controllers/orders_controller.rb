@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     if @order.save
-      flash[:notice] = "order succesfully created"
+      flash[:notice] = "Pedido creado correctamente"
       redirect_to root_path
     else
       flash[:alert] = "#{@order.errors.count} errors prohibited this order from being saved: "
@@ -49,6 +49,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:direction, :date)
+    params.require(:order).permit(:direction)
   end
 end

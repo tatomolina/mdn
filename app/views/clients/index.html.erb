@@ -1,4 +1,4 @@
-<h1 class"h1r">Pedidos</h1>
+<h1 class"h1r">Clientes</h1>
 
 <br/><br/>
 
@@ -8,21 +8,17 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Direccion</th>
-            <th scope="col">Date</th>
+            <th scope="col">Nombre</th>
           </tr>
         </thead>
         <tbody>
-          <% if @orders.present? %>
+          <% if @clients.present? %>
           <% x=0 %>
-            <% @orders.each do |order| %>
+            <% @clients.each do |client| %>
               <tr>
                 <th scope="row"><%= x+=1 %></th>
                 <td>
-                  <%= order.direction %>
-                </td>
-                <td>
-                  <%= order.created_at %>
+                  <%= link_to client.name, client %>
                 </td>
               </tr>
             <% end %>
@@ -31,7 +27,7 @@
       </table>
     <div>
       <p>
-        <%= link_to 'Nuevo Pedido', new_order_path, class: "btn btn-outline-primary" %>
+        <%= link_to 'Nuevo Cliente', new_client_path, class: "btn btn-outline-primary" %>
       </p>
     </div>
   </div>
