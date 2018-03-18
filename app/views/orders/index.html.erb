@@ -8,6 +8,7 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
+            <th scope="col">Cliente</th>
             <th scope="col">Direccion</th>
             <th scope="col">Date</th>
           </tr>
@@ -19,10 +20,19 @@
               <tr>
                 <th scope="row"><%= x+=1 %></th>
                 <td>
+                  <%= link_to order.client.name, order.client %>
+                </td>
+                <td>
                   <%= order.direction %>
                 </td>
                 <td>
                   <%= order.created_at %>
+                </td>
+                <td>
+                  <%= link_to "Ver", order_path(order) %>
+                  <%= link_to "Editar", edit_order_path(order) %>
+                  <%= link_to 'Eliminar', order_path(order),
+                        method: :delete, data: { confirm: 'Estas seguro?' } %>
                 </td>
               </tr>
             <% end %>

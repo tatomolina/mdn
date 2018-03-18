@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     if @order.update(order_params)
-      flash[:notice] = "order succesfully updated"
+      flash[:notice] = "Pedido actualizado correctamente"
       redirect_to root_path
     else
       #If i cant update, i render again the edit view
@@ -45,10 +45,16 @@ class OrdersController < ApplicationController
     end
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+
+    redirect_to orders_path
+  end
 
   private
 
   def order_params
-    params.require(:order).permit(:direction)
+    params.require(:order).permit(:direction, :client_id)
   end
 end
