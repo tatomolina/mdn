@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @order.articles.build
   end
 
   def create
@@ -26,6 +27,7 @@ class OrdersController < ApplicationController
 
   def edit
     @order = Order.find(params[:id])
+    @order.articles.build
   end
 
   def update
@@ -55,6 +57,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:direction, :client_id)
+    params.require(:order).permit(:direction, :client_id,
+      articles_attributes: [:id, :_destroy, :order_id, :quantity, :width, :height, :long, :description])
   end
 end
