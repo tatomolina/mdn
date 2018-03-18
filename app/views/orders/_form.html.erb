@@ -1,10 +1,10 @@
 <%= simple_form_for @order do |form| %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="form-group">
-      <%= form.association :client, label: "Cliente", class: "form-control" %>
-      <%= form.input :direction, label: "Direccion", class: "form-control" %>
+<div>
+  <div>
+    <div>
+      <%= form.association :client, label: "Cliente", class: "" %>
+      <%= form.input :direction, label: "Direccion", class: "" %>
 
       <table class="table table-striped">
         <thead>
@@ -15,7 +15,9 @@
             <th>Alto</th>
             <th>Largo</th>
             <th>Descripcion</th>
-            <th>Hecho</th>
+            <th>Procesado</th>
+            <th>Entregado</th>
+            <th>Facturado</th>
           </tr>
         </thead>
 
@@ -30,7 +32,7 @@
 
       <br/>
 
-      <div class="form-actions">
+      <div class="">
         <%= form.button :submit  %>
         <%= link_to_add_association "Agregar Articulo", form, :articles, class: "btn btn-primary",
         data: { association_insertion_node: ".articles", association_insertion_method: :append } %>

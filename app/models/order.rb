@@ -9,4 +9,16 @@ class Order < ApplicationRecord
     attributes['quantity'].blank? && attributes['width'].blank? && attributes['height'].blank?
   end
 
+  def done?
+    self.articles.inject(true){|sum,x| sum && x.done }
+  end
+
+  def delivered?
+    self.articles.inject(true){|sum,x| sum && x.delivered }
+  end
+
+  def invoiced?
+    self.articles.inject(true){|sum,x| sum && x.invoiced }
+  end
+
 end

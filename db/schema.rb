@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180318050800) do
+ActiveRecord::Schema.define(version: 20180318192723) do
 
-  create_table "articles", force: :cascade do |t|
-    t.float "quantity"
-    t.float "width"
-    t.float "height"
-    t.float "long"
-    t.string "description"
-    t.integer "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_articles_on_order_id"
-  end
+# Could not dump table "articles" because of following StandardError
+#   Unknown type 'bool' for column 'done'
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
