@@ -10,15 +10,15 @@ class Order < ApplicationRecord
   end
 
   def done?
-    self.articles.inject(true){|sum,x| sum && x.done }
+    self.articles.select{|x| x.done == 1 }.count == self.articles.count
   end
 
   def delivered?
-    self.articles.inject(true){|sum,x| sum && x.delivered }
+    self.articles.select{|x| x.delivered == 1 }.count == self.articles.count
   end
 
   def invoiced?
-    self.articles.inject(true){|sum,x| sum && x.invoiced }
+    self.articles.select{|x| x.invoiced == 1 }.count == self.articles.count
   end
 
 end

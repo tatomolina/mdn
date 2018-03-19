@@ -1,4 +1,4 @@
-<h1 class"h1r">Pedidos</h1>
+<h1 class"h1">Pedidos</h1>
 
 <br/><br/>
 
@@ -11,6 +11,10 @@
             <th scope="col">Cliente</th>
             <th scope="col">Direccion</th>
             <th scope="col">Date</th>
+            <th scope="col">Hecho</th>
+            <th scope="col">Entregado</th>
+            <th scope="col">Facturado</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -19,20 +23,17 @@
             <% @orders.each do |order| %>
               <tr>
                 <th scope="row"><%= x+=1 %></th>
-                <td>
-                  <%= link_to order.client.name, order.client %>
-                </td>
-                <td>
-                  <%= order.direction %>
-                </td>
-                <td>
-                  <%= order.created_at.to_date.to_formatted_s(:iso8601) %>
-                </td>
+
+                <td> <%= link_to order.client.name, order.client %> </td>
+                <td> <%= order.direction %> </td>
+                <td> <%= order.created_at.to_date.to_formatted_s(:iso8601) %> </td>
+
+                <td><%= check_box "order", "done?", {:checked => order.done?, :disabled => true}%></td>
+                <td><%= check_box "order", "delivered?", {:checked => order.delivered?, :disabled => true}%></td>
+                <td><%= check_box "order", "invoiced?", {:checked => order.invoiced?, :disabled => true}%></td>
+
                 <td>
                   <%= link_to "Ver", order_path(order) %>
-                  <%= link_to "Editar", edit_order_path(order) %>
-                  <%= link_to 'Eliminar', order_path(order),
-                        method: :delete, data: { confirm: 'Estas seguro?' } %>
                 </td>
               </tr>
             <% end %>
