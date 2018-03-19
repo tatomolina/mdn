@@ -1,9 +1,12 @@
-<h1> Pedido N° <%= @order.id %> </h1>
+<h1> Pedido N°: <%= @order.id %> </h1>
 <h2> Fecha: <%= @order.created_at.to_date.to_formatted_s(:iso8601) %> </h2>
-<h3> Cliente: <%= @order.client.name %> </h3>
+<h3> Cliente: <%= link_to @order.client.name, client_path(@order.client) %> </h3>
 <h3> Direccion: <%= @order.direction %> </h3>
 <hr>
-<h3> Articulos: </h3>
+<div class="row justify-content-center">
+  <h3> Articulos: </h3>
+</div>
+
 
 <table class="table">
   <thead class="thead-dark">
@@ -14,7 +17,7 @@
       <th scope="col">Alto</th>
       <th scope="col">Largo</th>
       <th scope="col">Descripcion</th>
-      <th scope="col">Hecho</th>
+      <th scope="col">Procesado</th>
       <th scope="col">Entregado</th>
       <th scope="col">Facturado</th>
     </tr>
@@ -42,6 +45,9 @@
   </tbody>
 </table>
 
-<%= link_to "Editar", edit_order_path(@order), class:"btn btn-primary" %>
-<%= link_to 'Eliminar', order_path(@order), class:"btn btn-primary",
+<div class="row justify-content-center">
+  <%= link_to "Editar", edit_order_path(@order), class:"btn btn-primary" %>
+  &nbsp;
+  <%= link_to 'Eliminar', order_path(@order), class:"btn btn-danger",
       method: :delete, data: { confirm: 'Estas seguro?' } %>
+</div>

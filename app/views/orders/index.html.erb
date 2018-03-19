@@ -1,6 +1,6 @@
-<h1 class"h1">Pedidos</h1>
-
-<br/><br/>
+<div class="row justify-content-center">
+  <h1 class"h1">Pedidos</h1>
+</div>
 
 <div>
   <div>
@@ -10,8 +10,8 @@
             <th scope="col">#</th>
             <th scope="col">Cliente</th>
             <th scope="col">Direccion</th>
-            <th scope="col">Date</th>
-            <th scope="col">Hecho</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Procesado</th>
             <th scope="col">Entregado</th>
             <th scope="col">Facturado</th>
             <th scope="col"></th>
@@ -41,9 +41,9 @@
         </tbody>
       </table>
     <div>
-      <p>
+      <div class="row justify-content-center">
         <%= link_to 'Nuevo Pedido', new_order_path, class: "btn btn-outline-primary" %>
-      </p>
+      </div>
     </div>
   </div>
 </div>
