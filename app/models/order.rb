@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  validates :client, :presence => true
+  validates :direction, :presence => true
   belongs_to :client
 
   has_many :articles, dependent: :destroy, inverse_of: :order
