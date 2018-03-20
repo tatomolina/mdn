@@ -34,7 +34,12 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
 
+# AuthenticationA
 gem 'devise', '~> 4.4', '>= 4.4.3'
+# Admin backend
+gem 'rails_admin', '~> 1.3'
+# Managing roles
+gem 'rolify', '~> 5.2'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
