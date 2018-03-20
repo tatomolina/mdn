@@ -2,19 +2,23 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    authorize Order
   end
 
   def show
     @order = Order.find(params[:id])
+    authorize @order
   end
 
   def new
     @order = Order.new
     @order.articles.build
+    authorize @order
   end
 
   def create
     @order = Order.new(order_params)
+    authorize @order
 
     if @order.save
       flash[:notice] = "Pedido creado correctamente"
@@ -32,10 +36,12 @@ class OrdersController < ApplicationController
   def edit
     @order = Order.find(params[:id])
     @order.articles.build
+    authorize @order
   end
 
   def update
     @order = Order.find(params[:id])
+    authorize @order
 
     if @order.update(order_params)
       flash[:notice] = "Pedido actualizado correctamente"
@@ -53,6 +59,7 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
+    authorize @order
     @order.destroy
 
     redirect_to orders_path

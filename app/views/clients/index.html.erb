@@ -9,6 +9,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
+            <th scope="col">Cantidad de Pedidos</th>
           </tr>
         </thead>
         <tbody>
@@ -20,15 +21,16 @@
                 <td>
                   <%= link_to client.name, client %>
                 </td>
+                <td> <%= client.orders.count %> </td>
               </tr>
             <% end %>
           <% end %>
         </tbody>
       </table>
     <div>
-      <p>
+      <% if policy(Client).new? %>
         <%= link_to 'Nuevo Cliente', new_client_path, class: "btn btn-outline-primary" %>
-      </p>
+      <% end %>
     </div>
   </div>
 </div>

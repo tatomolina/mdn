@@ -2,18 +2,22 @@ class ClientsController < ApplicationController
 
   def index
     @clients = Client.all
+    authorize Client
   end
 
   def show
     @client = Client.find(params[:id])
+    authorize @client
   end
 
   def new
     @client = Client.new
+    authorize @client
   end
 
   def create
     @client = Client.new(client_params)
+    authorize @client
 
     if @client.save
       flash[:notice] = "Cliente creado correctamente"
@@ -30,10 +34,12 @@ class ClientsController < ApplicationController
 
   def edit
     @client = Client.find(params[:id])
+    authorize @client
   end
 
   def update
     @client = Client.find(params[:id])
+    authorize @client
 
     if @client.update(client_params)
       flash[:notice] = "Pedido actualizado correctamente"
@@ -50,6 +56,7 @@ class ClientsController < ApplicationController
 
   def destroy
     @client = Client.find(params[:id])
+    authorize @client
     @client.destroy
 
     redirect_to clients_path

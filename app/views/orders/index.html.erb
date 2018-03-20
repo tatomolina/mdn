@@ -42,7 +42,9 @@
       </table>
     <div>
       <div class="row justify-content-center">
-        <%= link_to 'Nuevo Pedido', new_order_path, class: "btn btn-outline-primary" %>
+        <% if policy(Order).new? %>
+          <%= link_to 'Nuevo Pedido', new_order_path, class: "btn btn-outline-primary" %>
+        <% end %>
       </div>
     </div>
   </div>
