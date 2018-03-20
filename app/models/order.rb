@@ -7,6 +7,8 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :articles, allow_destroy: true,
    reject_if: :reject_posts
 
+  resourcify
+
   def reject_posts(attributes)
     attributes['quantity'].blank? && attributes['width'].blank? && attributes['height'].blank?
   end

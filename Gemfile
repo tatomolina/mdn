@@ -40,6 +40,7 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'rails_admin', '~> 1.3'
 # Managing roles
 gem 'rolify', '~> 5.2'
+gem 'pundit', '~> 1.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
