@@ -1,5 +1,5 @@
 <tr class="nested-fields">
-  <td> <%= link_to_remove_association "Eliminar articulo", f, class: "btn btn-primary" %> </td>
+  <td> <%= link_to_remove_association "Eliminar articulo", f, class: "btn btn-danger" %> </td>
   <td> <%= f.input :quantity, label: false %> </td>
   <td> <%= f.input :width, label: false %> </td>
   <td> <%= f.input :height, label: false %> </td>
@@ -7,5 +7,9 @@
   <td> <%= f.input :description, label: false %> </td>
   <td> <%= f.input :done, as: :boolean, label: false %> </td>
   <td> <%= f.input :delivered, as: :boolean, label: false %> </td>
-  <td> <%= f.input :invoiced, as: :boolean, label: false %> </td>
+  <td>
+    <% if (current_user.has_role?(:admin) || current_user.has_role?(:vendor))  %>
+      <%= f.input :invoiced, as: :boolean, label: false %> 
+    <% end %>
+  </td>
 </tr>

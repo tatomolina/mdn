@@ -13,7 +13,7 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def update?
-    (user.present?) && ((user.has_role? :vendor) || (user.has_role? :admin))
+    (user.present?) && ((user.has_role? :vendor) || (user.has_role? :admin) || (user.has_role? :worker))
   end
 
   def edit?

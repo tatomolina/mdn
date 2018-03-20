@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
       redirect_to root_path
     else
       #If i cant update, i render again the edit view
-      flash[:alert] = "#{@order.errors.count} errors prohibited this order from being saved: "
+      flash[:alert] = "#{@order.errors.count} errores no permitieron actualizar este pedido: "
       @order.errors.full_messages.each do |msg|
         flash[:alert] << "#{msg}"
         flash[:alert] << ", " unless @order.errors.full_messages.last == msg
