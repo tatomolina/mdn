@@ -2,6 +2,7 @@ class Order < ApplicationRecord
   validates :client, :presence => true
   validates :direction, :presence => true
   belongs_to :client
+  belongs_to :area
 
   has_many :articles, dependent: :destroy, inverse_of: :order
   accepts_nested_attributes_for :articles, allow_destroy: true,

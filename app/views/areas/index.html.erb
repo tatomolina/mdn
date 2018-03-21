@@ -1,4 +1,4 @@
-<h1 class"h1">Clientes</h1>
+<h1 class"h1">Zonas</h1>
 
 <br/><br/>
 
@@ -9,19 +9,19 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Cantidad de Pedidos</th>
+            <th scope="col">Pedidos a Entregar</th>
           </tr>
         </thead>
         <tbody>
-          <% if @clients.present? %>
+          <% if @areas.present? %>
           <% x=0 %>
-            <% @clients.each do |client| %>
+            <% @areas.each do |area| %>
               <tr>
                 <th scope="row"><%= x+=1 %></th>
                 <td>
-                  <%= link_to client.name, client %>
+                  <%= link_to area.name, area %>
                 </td>
-                <td> <%= client.orders.count %> </td>
+                <td> <%= area.not_delivered.count %> </td>
               </tr>
             <% end %>
           <% end %>
@@ -29,7 +29,7 @@
       </table>
     <div>
       <% if policy(Client).new? %>
-        <%= link_to 'Nuevo Cliente', new_client_path, class: "btn btn-outline-primary" %>
+        <%= link_to 'Nueva Zona', new_area_path, class: "btn btn-outline-primary" %>
       <% end %>
     </div>
   </div>
